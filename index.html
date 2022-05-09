@@ -1,0 +1,47 @@
+<h1>A Vanilla JS Content Filter</h1>
+<h2>The JS feature takes in a string, and will replace swear/profane words based off of a provided list.</h2>
+<h2>Four Languages are currently supported: English, Spanish, Italian, and Indonesian.</h2>
+<h2>If you have a list of swear/profane words, submit a GitHub issue to
+    <a href="https://github.com/SparkedScience/content-filteer/issues">GitHub</a>.</h2>
+<br>
+<label for="lang">Choose a language:</label>
+
+<select name="lang" id="lang">
+    <option value="en">English</option>
+    <option value="es">Spanish</option>
+    <option value="it">Italian</option>
+    <option value="id">Indonesian</option>
+</select>
+
+<br>
+
+<label for="filterList">Enter comma seperated strings to filter by below</label>
+<input type="text" id="filterList" placeholder="Enter a string here...">
+
+<br>
+
+<label for="input">Enter a test sting below</label>
+<input type="text" id="input" placeholder="Enter a string here...">
+<button id="check">Check</button>
+
+<h1 id="result"></h1>
+<p>Note: There is a slight delay in the demo. The package takes less than a second to parse the JSON files.</p>
+<p> In a normal use case, the ContentFilter will be imported when the page loads and language is set then, so timing will not be an
+issue.</p>
+<p>The delay is for the dynamic setting of the language for the demo.</p>
+
+<script type="module">
+    import {ContentFilter} from "./src/content-filter.js";
+    document.getElementById("check").addEventListener("click", function() {
+        let input = document.getElementById("input").value;
+        let lang = document.getElementById("lang").value;
+        let filterList = document.getElementById("filterList").value;
+        let cf = new ContentFilter(lang, filterList);
+        let result;
+        // setTimeout is used to force JavaScript to run the code in order, simulating a normal use case.
+        setTimeout(() => {
+            result = cf.filter(input);
+            document.getElementById("result").innerHTML = result;
+        }, 0);
+    });
+</script>

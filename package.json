@@ -1,10 +1,10 @@
 {
-  "name": "content-filter",
-  "version": "1.0.0",
+  "name": "@sparkedscience/content-filter",
+  "version": "1.0.1",
   "description": "A js content filter for websites",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "demo": "open-cli index.html"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,12 @@
   "bugs": {
     "url": "https://github.com/SparkedScience/content-filter/issues"
   },
-  "homepage": "https://github.com/SparkedScience/content-filter#readme"
+  "homepage": "https://github.com/SparkedScience/content-filter#readme",
+  "devDependencies": {
+    "open-cli": "^7.0.1"
+  },
+  "private": false,
+  "publishConfig": {
+    "access": "public"
+  }
 }
